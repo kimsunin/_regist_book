@@ -22,3 +22,9 @@
 /board/free ->자유게시판
 참고사이트
 https://www.youtube.com/watch?v=nahwuaXmgt8&list=PLfLgtT94nNq1e6tr4sm2eH6ZZC2jcqGOy&index=2
+
+상단바 css
+https://iwbtbitj.tistory.com/128
+
+주소이동
+https://stickode.tistory.com/663

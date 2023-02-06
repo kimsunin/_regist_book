@@ -2,6 +2,27 @@
   text-align: center;
 }
 
+.list {
+  margin-top: 30px;
+  text-align: left;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+#topMenu {
+  background: black;
+  width: 100%;
+  display: flex;
+  color: white;
+  padding: 20px;
+  font-weight: 600;
+  font-size: 20px;
+}
+#topMenu ul li {
+  float: left;
+  padding-left: 30px;
+}
+
 .App-logo {
   height: 40vmin;
   pointer-events: none;
