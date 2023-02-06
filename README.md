@@ -20,3 +20,5 @@
 /board/notice/:id ->공지사항 글1개
 
 /board/free ->자유게시판
+참고사이트
+https://www.youtube.com/watch?v=nahwuaXmgt8&list=PLfLgtT94nNq1e6tr4sm2eH6ZZC2jcqGOy&index=2
