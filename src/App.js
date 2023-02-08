@@ -4,7 +4,7 @@ import "./App.css";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Posts from "./component/Posts";
 import Topmenu from "./component/Topmenu";
-
+import Login, { LoginBar } from "./component/Login";
 function App() {
   return (
     <div className="App">
@@ -20,8 +20,17 @@ function App() {
               </>
             }
           ></Route>
-          {/* <Route path={"/join"} element={}></Route>
-          <Route path={"/login"} element={}></Route> */}
+          {/* <Route path={"/join"} element={}></Route> */}
+          <Route
+            path={"/login"}
+            element={
+              <>
+                <Topmenu />
+                <Login />
+                <LoginBar />
+              </>
+            }
+          ></Route>
         </Routes>
       </BrowserRouter>
     </div>
