@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import "./App.css";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Posts from "./component/Posts";
+import Join from "./component/Join";
 import Topmenu from "./component/Topmenu";
 import Login, { LoginBar } from "./component/Login";
 function App() {
@@ -20,6 +21,17 @@ function App() {
               </>
             }
           ></Route>
+            <Route
+            path={"/join"}
+            element={
+              <>
+                <Topmenu />
+                <Join />
+              </>
+            }
+          ></Route>
+          {/* <Route path={"/join"} element={}></Route>
+          <Route path={"/login"} element={}></Route> */}
           {/* <Route path={"/join"} element={}></Route> */}
           <Route
             path={"/login"}
