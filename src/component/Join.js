@@ -8,7 +8,7 @@ export default function Join() {
   return (
     <div className="join">
       <h2>회원가입</h2>
-      <form>
+      <form method="post">
         <div id="join-id">
           <span>아이디</span>
           <input type="text" required maxLength="15" placeholder="id"></input>
