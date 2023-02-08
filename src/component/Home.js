@@ -28,3 +28,6 @@ export default function Topmenu() {
     </nav>
   );
 }
+export function HomeContent() {
+  return <h2>Homepage</h2>;
+}

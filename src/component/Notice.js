@@ -1,7 +1,7 @@
 /* eslint-disable */
 import React, { useState } from "react";
 
-export default function Posts(props) {
+export function Posts(props) {
   let num = 0;
   let [title, tFun] = useState(["글제목1", "글제목2", "글제목3"]);
   let [context, cFun] = useState(["글내용1", "글내용2", "글내용3"]);
@@ -23,6 +23,16 @@ export default function Posts(props) {
       <h2>{context[props.num]}</h2>
       <p>{date[props.num]}</p>
       <hr></hr>
+    </div>
+  );
+}
+export default function Notice() {
+  let num = 0;
+  return (
+    <div>
+      <Posts num={num++} />
+      <Posts num={num++} />
+      <Posts num={num++} />
     </div>
   );
 }

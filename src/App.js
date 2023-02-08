@@ -2,26 +2,34 @@
 import React, { useState } from "react";
 import "./App.css";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Posts from "./component/Posts";
+import Notice from "./component/Notice";
 import Join from "./component/Join";
-import Topmenu from "./component/Topmenu";
+import Topmenu, { HomeContent } from "./component/Home";
 import Login, { LoginBar } from "./component/Login";
 function App() {
   return (
     <div className="App">
       <BrowserRouter>
         <Routes>
-          <Route path={"/"} element={<Topmenu />}></Route>
+          <Route
+            path={"/"}
+            element={
+              <>
+                <Topmenu />
+                <HomeContent />
+              </>
+            }
+          ></Route>
           <Route
             path={"/notice"}
             element={
               <>
                 <Topmenu />
-                <Posts />
+                <Notice />
               </>
             }
           ></Route>
-            <Route
+          <Route
             path={"/join"}
             element={
               <>
@@ -30,9 +38,6 @@ function App() {
               </>
             }
           ></Route>
-          {/* <Route path={"/join"} element={}></Route>
-          <Route path={"/login"} element={}></Route> */}
-          {/* <Route path={"/join"} element={}></Route> */}
           <Route
             path={"/login"}
             element={

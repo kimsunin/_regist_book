@@ -33,16 +33,12 @@ export function LoginBar() {
     <nav id="loginBar">
       <ul>
         <span>
-          <button
-            onClick={moveLoginFind}
-            className="menuLink"
-            href="/login/find"
-          >
+          <button onClick={moveLoginFind} className="menuLink">
             Find ID/Pw
           </button>
         </span>
         <span>
-          <button onClick={moveJoin} className="menuLink" href="/join">
+          <button onClick={moveJoin} className="menuLink">
             Join
           </button>
         </span>
