@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 export default function Login() {
   return (
@@ -19,19 +20,31 @@ export default function Login() {
     </div>
   );
 }
+
 export function LoginBar() {
+  const movePage = useNavigate();
+  function moveLoginFind() {
+    movePage("/login/find");
+  }
+  function moveJoin() {
+    movePage("/join");
+  }
   return (
     <nav id="loginBar">
       <ul>
         <span>
-          <a className="menuLink" href="/login/find">
+          <button
+            onClick={moveLoginFind}
+            className="menuLink"
+            href="/login/find"
+          >
             Find ID/Pw
-          </a>
+          </button>
         </span>
         <span>
-          <a className="menuLink" href="/join">
+          <button onClick={moveJoin} className="menuLink" href="/join">
             Join
-          </a>
+          </button>
         </span>
       </ul>
     </nav>
