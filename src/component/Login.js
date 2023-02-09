@@ -3,10 +3,23 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 export default function Login() {
+  const user = { userName: "a", password: "b" };
+
+  function handleSubmit(e) {
+    e.preventDefault();
+    if (
+      user.userName === e.target[0].value &&
+      user.password === e.target[1].value
+    ) {
+      console.log("로그인되었습니다.");
+    } else {
+      console.log("로그인 실패");
+    }
+  }
   return (
     <div id="loginWrapper">
       <h2>Login</h2>
-      <form method="post" id="loginForm">
+      <form onSubmit={handleSubmit} id="loginForm" action="/">
         <input type="text" name="userName" placeholder="Id"></input>
         <input
           type="password"

@@ -6,6 +6,7 @@ import Notice from "./component/Notice";
 import Join from "./component/Join";
 import Topmenu, { HomeContent } from "./component/Home";
 import Login, { LoginBar } from "./component/Login";
+
 function App() {
   return (
     <div className="App">
