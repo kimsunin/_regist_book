@@ -20,16 +20,9 @@
 /board/notice/:id ->공지사항 글1개
 
 /board/free ->자유게시판
-참고사이트
-https://www.youtube.com/watch?v=nahwuaXmgt8&list=PLfLgtT94nNq1e6tr4sm2eH6ZZC2jcqGOy&index=2
 
-상단바 css
-https://iwbtbitj.tistory.com/128
+2/9해야할일
 
-주소이동
-https://stickode.tistory.com/663
-
-리액트:https://ko.reactjs.org/docs/forms.html
-
-리액트 확인 :https://v5.reactrouter.com/web/example/basic
-fdsfs
+1. join해서 데이터 저장하기
+2. login할때 저장된 데이터 비교해서 로그인 성공, 로그인 실패 확인하기
+3. nodejs 서버 구축
