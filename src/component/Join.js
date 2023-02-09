@@ -11,12 +11,19 @@ export default function Join() {
       <form method="post">
         <div id="join-id">
           <span>아이디</span>
-          <input type="text" required maxLength="15" placeholder="id"></input>
+          <input
+            name="username"
+            type="text"
+            required
+            maxLength="15"
+            placeholder="id"
+          ></input>
         </div>
         <div id="password">
           <div id="join-password1">
             <span>비밀번호</span>
-            <input name="password"
+            <input
+              name="password"
               type="password"
               required
               maxLength="20"
@@ -25,7 +32,8 @@ export default function Join() {
           </div>
           <div id="join-password2">
             <span>비밀번호확인</span>
-            <input name="passwordcheck"
+            <input
+              name="passwordcheck"
               type="password"
               required
               maxLength="20"
@@ -35,7 +43,8 @@ export default function Join() {
         </div>
         <div id="join-email">
           <span>이메일</span>
-          <input name="email"
+          <input
+            name="email"
             type="email"
             required
             maxLength="20"
@@ -44,7 +53,13 @@ export default function Join() {
         </div>
         <div id="join-name">
           <span>이름</span>
-          <input name="name" type="text" required maxLength="10" placeholder="name"></input>
+          <input
+            name="name"
+            type="text"
+            required
+            maxLength="10"
+            placeholder="name"
+          ></input>
         </div>
         <input type="submit" value="join"></input>
       </form>
