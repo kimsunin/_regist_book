@@ -26,3 +26,4 @@
 1. join해서 데이터 저장하기
 2. login할때 저장된 데이터 비교해서 로그인 성공, 로그인 실패 확인하기
 3. nodejs 서버 구축
+   https://ndb796.tistory.com/217
