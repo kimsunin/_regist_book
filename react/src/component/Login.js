@@ -4,36 +4,28 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom";
 
 export default function Login() {
-  const user = { userName: "a", password: "b" };
-
-  function handleSubmit(e) {
-    e.preventDefault();
-    if (
-      user.userName === e.target[0].value &&
-      user.password === e.target[1].value
-    ) {
-      console.log("로그인되었습니다.");
-    } else {
-      console.log("로그인 실패");
-    }
-  }
-
-  const send = () => {
-    const client = axios.create();
-    const name = "한창민";
-    client.get("/api", { name });
+  const [name, setName] = useState(null);
+  const handler = (e) => {
+    setName(e.value);
+    fetchName();
   };
+  const fetchName = async () => {
+    const response = await axios.post("http://www.localhost:4000", {
+      name: "changmifdsfsn",
+    });
+  };
+
   return (
     <div id="loginWrapper">
       <h2>Login</h2>
-      <form onSubmit={send} id="loginForm" action="/">
+      <form onSubmit={handler} id="loginForm">
         <input type="text" name="userName" placeholder="Id"></input>
         <input
           type="password"
           name="userPassword"
           placeholder="Password"
         ></input>
-        <label for="remember-check">
+        <label htmlFor="remember-check">
           <input type="checkbox" id="remember-check"></input>
         </label>
         <input type="submit" value="Login"></input>
