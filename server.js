@@ -1,39 +1,35 @@
 import express from "express";
-import cors from "cors";
-import bodyParser from "body-parser"; //post로 받은 데이터의 body부분을 읽기위해서 안쓰면 제대로 못읽는다
+import cors from "cors"; //다른 포트번호에서 이서버로 post요청을 수락하기
+import session from "express-session";
+import userRouter from "./routes/userRouter";
+import boardRouter from "./routes/boardRouter";
 const app = express();
 
-const user = [
-  {
-    username: "changmin",
-    password: "1234",
-  },
-  {
-    username: "sunin",
-    password: "1234",
-  },
-];
-
-app.use(bodyParser.urlencoded({ extended: false }));
-app.use(bodyParser.json());
-
-app.use(cors());
-//rending할때 종류가 많아서 html로 해주기 위해 쓴다
-app.set("view engine", "ejs");
-app.engine("html", require("ejs").renderFile);
-
-const postLogin = (req, res) => {
-  const postUsername = req.body.username;
-  const postPassword = req.body.password;
-
-  console.log(postUsername, postPassword, "받아졌음");
+//post전송받은거 설정하기 위해
+const corsOptions = {
+  origin: true,
+  credentials: true,
 };
-const getLogin = (req, res) => {
-  res.render("a.html");
-};
-app.route("/").get(getLogin).post(postLogin);
-// app.post("/", postLogin);
+app.use(cors(corsOptions));
 
-// app.get("/", getLogin);
+//post로 만든 데이터를 알아볼 수 있도록
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+
+//로그인유지하기위한 session, cookie사용
+app.use(
+  session({
+    resave: true,
+    saveUninitialized: true,
+    secret: "changmin",
+    cookie: {
+      httpOnly: true,
+      secure: false,
+    },
+  })
+);
+
+app.use("/users", userRouter);
+app.use("/board", boardRouter);
 
 app.listen(4000, () => console.log("✅server is listening!"));
