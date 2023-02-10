@@ -4,26 +4,36 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom";
 
 export default function Login() {
-  const [name, setName] = useState(null);
+  const [username, setUsername] = useState();
+  const [password, setPassword] = useState();
   const handler = (e) => {
-    setName(e.value);
+    e.preventDefault();
     fetchName();
   };
   const fetchName = async () => {
     const response = await axios.post("http://www.localhost:4000", {
-      name: "changmifdsfsn",
+      username,
+      password,
     });
   };
 
   return (
     <div id="loginWrapper">
       <h2>Login</h2>
-      <form onSubmit={handler} id="loginForm">
-        <input type="text" name="userName" placeholder="Id"></input>
+      <form method="post" onSubmit={handler} id="loginForm">
+        <input
+          type="text"
+          name="username"
+          placeholder="Id"
+          value={username || ""}
+          onChange={(e) => setUsername(e.target.value)}
+        ></input>
         <input
           type="password"
-          name="userPassword"
+          name="password"
           placeholder="Password"
+          value={password || ""}
+          onChange={(e) => setPassword(e.target.value)}
         ></input>
         <label htmlFor="remember-check">
           <input type="checkbox" id="remember-check"></input>
