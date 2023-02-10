@@ -3,8 +3,9 @@ import cors from "cors"; //다른 포트번호에서 이서버로 post요청을 
 import session from "express-session";
 import userRouter from "./routes/userRouter";
 import boardRouter from "./routes/boardRouter";
+import connect from "./schemas";
 const app = express();
-
+connect();
 //post전송받은거 설정하기 위해
 const corsOptions = {
   origin: true,

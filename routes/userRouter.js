@@ -13,7 +13,6 @@ function postLogin(req, res) {
   } else {
     res.json({ message: "로그인실패" });
   }
-  console.log(username, password, "postJoin");
 }
 function postJoin() {
   console.log("postLogin");
