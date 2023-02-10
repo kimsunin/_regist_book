@@ -1,5 +1,6 @@
 /* eslint-disable */
 import React, { useState } from "react";
+import axios from "axios";
 import { useNavigate } from "react-router-dom";
 
 export default function Login() {
@@ -16,10 +17,16 @@ export default function Login() {
       console.log("로그인 실패");
     }
   }
+
+  const send = () => {
+    const client = axios.create();
+    const name = "한창민";
+    client.get("/api", { name });
+  };
   return (
     <div id="loginWrapper">
       <h2>Login</h2>
-      <form onSubmit={handleSubmit} id="loginForm" action="/">
+      <form onSubmit={send} id="loginForm" action="/">
         <input type="text" name="userName" placeholder="Id"></input>
         <input
           type="password"

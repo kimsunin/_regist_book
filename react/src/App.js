@@ -11,10 +11,12 @@ import Login, { LoginBar } from "./component/Login";
 function App() {
   const getApi = async () => {
     axios.get("/api/hello").then((res) => console.log(res.data));
+    axios.get("/api/hi").then((res) => console.log(res.data));
   };
-  useEffect(() => {
-    getApi();
-  }, []);
+  getApi();
+  // useEffect(() => {
+  //   getApi();
+  // }, []);
   return (
     <div className="App">
       <BrowserRouter>
