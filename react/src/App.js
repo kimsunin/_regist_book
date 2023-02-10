@@ -1,13 +1,20 @@
 /* eslint-disable */
-import React, { useState } from "react";
-import "./App.css";
+import React, { useEffect, useState } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import axios from "axios";
+import "./App.css";
 import Notice from "./component/Notice";
 import Join from "./component/Join";
 import Topmenu, { HomeContent } from "./component/Home";
 import Login, { LoginBar } from "./component/Login";
 
 function App() {
+  const getApi = async () => {
+    axios.get("/api/hello").then((res) => console.log(res.data));
+  };
+  useEffect(() => {
+    getApi();
+  }, []);
   return (
     <div className="App">
       <BrowserRouter>
