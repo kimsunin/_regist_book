@@ -25,6 +25,7 @@ app.engine("html", require("ejs").renderFile);
 const postLogin = (req, res) => {
   const postUsername = req.body.username;
   const postPassword = req.body.password;
+
   console.log(postUsername, postPassword, "받아졌음");
 };
 const getLogin = (req, res) => {
