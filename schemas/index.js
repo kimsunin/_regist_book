@@ -1,4 +1,4 @@
-import mongoose from "mongoose";
+import mongoose, { mongo } from "mongoose";
 
 module.exports = () => {
   const connect = () => {
@@ -6,9 +6,9 @@ module.exports = () => {
       mongoose.set("debug", true);
     }
     mongoose.connect(
-      "mongodb://localhost:27017/",
+      "mongodb://localhost:27017/test",
       {
-        dbName: "til",
+        dbName: "test",
       },
       (error) => {
         if (error) {
@@ -30,3 +30,9 @@ module.exports = () => {
   //   require("./board");
   require("./user");
 };
+
+// mongodb명령어 간단사용법 (구글링하기))
+// mongo
+// use test
+// show dbs
+// show collections
