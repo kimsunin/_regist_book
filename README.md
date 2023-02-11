@@ -13,7 +13,3 @@ login 전송버튼을 누르면 login form 데이터를 서버에 보낼 수 있
 
 공식사이트 : https://react-bootstrap.github.io/getting-started/introduction/
 -join.js에서 서버로 post전송하기 -서버에서 user모델,board모델만들기
-
--header, body, footer로 나누고
-상단바에 header
-내용은 body로 분류하기

@@ -12,11 +12,9 @@ const corsOptions = {
   credentials: true,
 };
 app.use(cors(corsOptions));
-
 //post로 만든 데이터를 알아볼 수 있도록
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-
 //로그인유지하기위한 session, cookie사용
 app.use(
   session({
