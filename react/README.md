@@ -31,7 +31,7 @@
 2/12
 
 1.notice 창 구현
-board list, borad add, board detail
+board list, borad add, board detail 2. react-bootscrap 으로 바꾸기 3. 조건에 따라 보여지는 창 다르기 만들기
 
 1. /localhost:5000/boards/getList
    :list 보내주는 기능 만들어줘

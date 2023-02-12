@@ -23,4 +23,16 @@ message: ""
 errMessage:""
 }
 
-##
+## server
+
+1. 회원가입 중복계정확인하기
+2. 글쓰기 api만들기
+3. 로그인 유지시키기 (쿠키,세션)
+
+<nav>
+    <ul>
+        <li>
+        <li>
+        <li>
+    <ul>
+<nav>

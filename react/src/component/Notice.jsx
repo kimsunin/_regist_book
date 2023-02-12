@@ -28,6 +28,7 @@ export function Posts(props) {
 }
 export default function Notice() {
   let num = 0;
+
   return (
     <div>
       <Posts num={num++} />
