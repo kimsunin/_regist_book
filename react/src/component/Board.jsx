@@ -27,5 +27,9 @@ function BoardDtail()
 
 function BoardUpdate()
 
-function CreateBoard()s
+function CreateBoard(){
+    return(
+        
+    )
+}
 

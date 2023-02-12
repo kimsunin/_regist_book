@@ -7,15 +7,10 @@ import Notice from "./component/Notice";
 import Join from "./component/Join";
 import Topmenu, { HomeContent } from "./component/Home";
 import Login, { LoginBar } from "./component/Login";
+import "bootstrap/dist/css/bootstrap.min.css";
+import { Button } from "react-bootstrap";
 
 function App() {
-  // const getApi = async () => {
-  //   axios.get("/api/hello").then((res) => console.log(res.data));
-  //   axios.get("/api/hi").then((res) => console.log(res.data));
-  // };
-  // useEffect(() => {
-  //   getApi();
-  // }, []);
   return (
     <div className="App">
       <BrowserRouter>
@@ -26,6 +21,7 @@ function App() {
               <>
                 <Topmenu />
                 <HomeContent />
+                <Button>Hello</Button>
               </>
             }
           ></Route>
