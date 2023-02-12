@@ -14,13 +14,3 @@ login 전송버튼을 누르면 login form 데이터를 서버에 보낼 수 있
 공식사이트 : https://react-bootstrap.github.io/getting-started/introduction/
 -join.js에서 서버로 post전송하기 -서버에서 user모델,board모델만들기
 
-## react
-
-/board/add
-받고 만약에 추가되면 {message:}추가됨 넣어줄게
-오류뜨면 {
-message: ""
-errMessage:""
-}
-
-##
