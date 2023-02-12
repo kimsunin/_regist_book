@@ -2,8 +2,6 @@
 import React, { useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
-import Button from 'react-bootstrap/Button';
-
 
 axios.defaults.withCredentials = true;
 const headers = { withCredentials: true };
@@ -33,30 +31,30 @@ export default function Login() {
   }
 
   return (
-      <div id="loginWrapper">
-        <h2>Login</h2>
-        
-        <form method="post" onSubmit={login} id="loginForm">
-          <input
-            type="text"
-            name="username"
-            placeholder="Id"
-            value={username || ""}
-            onChange={(e) => setUsername(e.target.value)}
-          ></input>
-          <input
-            type="password"
-            name="password"
-            placeholder="Password"
-            value={password || ""}
-            onChange={(e) => setPassword(e.target.value)}
-          ></input>
-          <label htmlFor="remember-check">
-            <input type="checkbox" id="remember-check"></input>
-          </label>
-          <input type="submit" value="Login"></input>
-        </form>
-      </div>
+    <div id="loginWrapper">
+      <h2>Login</h2>
+
+      <form method="post" onSubmit={login} id="loginForm">
+        <input
+          type="text"
+          name="username"
+          placeholder="Id"
+          value={username || ""}
+          onChange={(e) => setUsername(e.target.value)}
+        ></input>
+        <input
+          type="password"
+          name="password"
+          placeholder="Password"
+          value={password || ""}
+          onChange={(e) => setPassword(e.target.value)}
+        ></input>
+        <label htmlFor="remember-check">
+          <input type="checkbox" id="remember-check"></input>
+        </label>
+        <input type="submit" value="Login"></input>
+      </form>
+    </div>
   );
 }
 
@@ -77,7 +75,7 @@ export function LoginBar() {
           </button>
         </span>
         <span>
-          <button  onClick={moveJoin} className="menuLink" >
+          <button onClick={moveJoin} className="menuLink">
             Join
           </button>
         </span>
@@ -85,4 +83,3 @@ export function LoginBar() {
     </nav>
   );
 }
-

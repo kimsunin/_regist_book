@@ -1,9 +1,9 @@
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
+import React, { useState } from "react";
 
 axios.defaults.withCredentials = true;
 const headers = { withCredentials: true };
-
 
 export default function Join() {
   const [username, setUsername] = useState();
@@ -42,7 +42,7 @@ export default function Join() {
   return (
     <div className="join">
       <h2>회원가입</h2>
-      <form method="post" onSubmit={join} >
+      <form method="post" onSubmit={join}>
         <div id="join-id">
           <span>아이디</span>
           <input
@@ -57,22 +57,22 @@ export default function Join() {
           <div id="join-password1">
             <span>비밀번호</span>
             <input
-            type="text"
-            name="password"
-            placeholder="p/w"
-            value={password || ""}
-            onChange={(e) => setPassword(e.target.value)}
-          ></input>
+              type="text"
+              name="password"
+              placeholder="p/w"
+              value={password || ""}
+              onChange={(e) => setPassword(e.target.value)}
+            ></input>
           </div>
           <div id="join-password2">
             <span>비밀번호확인</span>
             <input
-            type="text"
-            name="password2"
-            placeholder="p/w2"
-            value={password2 || ""}
-            onChange={(e) => setPassword2(e.target.value)}
-          ></input>
+              type="text"
+              name="password2"
+              placeholder="p/w2"
+              value={password2 || ""}
+              onChange={(e) => setPassword2(e.target.value)}
+            ></input>
           </div>
         </div>
         <div id="join-email">
@@ -91,7 +91,7 @@ export default function Join() {
             type="text"
             name="name"
             placeholder="name"
-            value={name|| ""}
+            value={name || ""}
             onChange={(e) => setName(e.target.value)}
           ></input>
         </div>
