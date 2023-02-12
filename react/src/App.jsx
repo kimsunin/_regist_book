@@ -8,7 +8,6 @@ import Join from "./component/Join";
 import Topmenu, { HomeContent } from "./component/Home";
 import Login, { LoginBar } from "./component/Login";
 import "bootstrap/dist/css/bootstrap.min.css";
-import { Button } from "react-bootstrap";
 
 function App() {
   return (
@@ -21,7 +20,6 @@ function App() {
               <>
                 <Topmenu />
                 <HomeContent />
-                <Button>Hello</Button>
               </>
             }
           ></Route>
