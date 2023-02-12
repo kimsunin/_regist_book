@@ -27,3 +27,18 @@
 2. login할때 저장된 데이터 비교해서 로그인 성공, 로그인 실패 확인하기
 3. nodejs 서버 구축
    https://ndb796.tistory.com/217
+
+2/12
+
+1.notice 창 구현
+board list, borad add, board detail
+
+1. /localhost:5000/boards/getList
+   :list 보내주는 기능 만들어줘
+2. /boards/add post
+   : 난 글 제목,글내용 보내줄게
+   {
+   title : 글제목
+   content : 글내용
+   }이렇게 보내줄게
+   그러면 추가시켜줘

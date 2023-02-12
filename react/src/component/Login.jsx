@@ -29,7 +29,6 @@ export default function Login() {
         console.log(err);
       });
   }
-
   return (
     <div id="loginWrapper">
       <h2>Login</h2>
