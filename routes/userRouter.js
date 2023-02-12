@@ -18,7 +18,7 @@ async function postJoin(req, res) {
   console.log("dksf");
   const { username, password, password2, email, name } = req.body;
   console.log("fk");
-  const exist = await User.exists({ username });
+  const exist = await User.exists({ email });
   console.log("fk");
 
   if (password !== password2) {
