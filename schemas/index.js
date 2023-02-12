@@ -1,4 +1,4 @@
-import mongoose, { mongo } from "mongoose";
+import mongoose from "mongoose";
 
 module.exports = () => {
   const connect = () => {
@@ -17,7 +17,7 @@ module.exports = () => {
           console.log("몽고디비 연결 성공");
         }
       }
-    );
+    );  
   };
   connect();
   mongoose.connection.on("error", (error) => {
@@ -30,9 +30,3 @@ module.exports = () => {
   //   require("./board");
   require("./user");
 };
-
-// mongodb명령어 간단사용법 (구글링하기))
-// mongo
-// use test
-// show dbs
-// show collections
