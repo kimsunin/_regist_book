@@ -17,7 +17,6 @@ export default function Board(){
 function BoardList(){
     return(
         <nav className="boardlist">
-            <>
             <ul>
                 <li>
                     <dl>
@@ -67,14 +66,7 @@ function BoardList(){
                         </dt>
                     </dl>
                 </li>
-                <li>제목</li>
-                <li>제목</li>
-                <li>제목</li>
-                <li>제목</li>
-                <li>제목</li>
             </ul>
-                <button onClick={handler}>글생성</button>
-            </>
         </nav>
     )
 }
@@ -99,17 +91,7 @@ export function BoardDetail(){
 
 export function BoardRetouch(){
     return(
-    <>
         <a href="/board/detail">뒤로</a>
-        <form method="post" className="createboard">
-            <nav>
-                <input>제목</input>
-                <input>내용</input>
-            </nav>
-            <input type="submit">생성</input>
-            <button onClick={Board}>취소</button>
-        </form>
-    </>
     )
 }
 
