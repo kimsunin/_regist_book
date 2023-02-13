@@ -90,8 +90,25 @@ export function BoardDetail(){
 }
 
 export function BoardRetouch(){
+    const movePage = useNavigate();
+    function moveDetail(){
+        movePage("/board/detail")
+    }
     return(
-        <a href="/board/detail">뒤로</a>
+        <>
+        <form method="post">
+            <div className="titleretouch">
+                <input type="text">
+                </input>
+            </div>
+            <div className="detailretouch"> 
+                <input type="text">
+                </input>
+            </div>
+            <input type="submit" value="수정"></input>
+        </form>
+        <button onClick={ moveDetail }>취소</button>
+        </>
     )
 }
 
@@ -107,8 +124,8 @@ export function CreateBoard(){
                 <input type="text" placeholder="제목">
                 </input>
             </div>
-            <div> 
-                <input className="detail" placeholder="내용">
+            <div className="detail"> 
+                <input type="text" placeholder="내용">
                 </input>
             </div>
             <input type="submit" value="생성"></input>
