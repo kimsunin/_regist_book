@@ -3,7 +3,7 @@ import React, { useEffect, useState } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import axios from "axios";
 import "./App.css";
-import Notice from "./component/Notice";
+import Board, { BoardDetail, BoardRetouch, CreateBoard } from "./component/Board";
 import Join from "./component/Join";
 import Topmenu, { HomeContent } from "./component/Home";
 import Login, { LoginBar } from "./component/Login";
@@ -24,12 +24,33 @@ function App() {
             }
           ></Route>
           <Route
-            path={"/notice"}
+            path={"/board"}
             element={
               <>
                 <Topmenu />
-                <Notice />
+                <Board />
               </>
+            }
+          ></Route>
+          <Route path="/board/detail" element={
+            <>
+            <Topmenu />
+            <BoardDetail />
+            </>
+            }
+          ></Route>
+          <Route path="/board/create" element={
+            <>
+            <Topmenu />
+            <CreateBoard />
+            </>
+            }
+          ></Route>
+          <Route path="/board/retouch" element={
+            <>
+            <Topmenu />
+            <BoardRetouch />
+            </>
             }
           ></Route>
           <Route

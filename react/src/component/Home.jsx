@@ -21,7 +21,7 @@ export default function Topmenu() {
         </li>
         <li>
           <a className="menuLink" href="/board">
-            board
+            Board
           </a>
         </li>
       </ul>
