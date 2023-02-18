@@ -21,7 +21,7 @@ export default function Login() {
       .then((returnData) => {
         if (returnData.data.message) {
           alert(returnData.data.message);
-          window.location.reload();
+          window.location.reload("/");
         } else {
           alert(returnData.data.message);
         }

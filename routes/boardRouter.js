@@ -19,6 +19,7 @@ async function postWrite(req, res) {
 }
 async function getBoard(req, res) {
   const boards = await Board.find({});
+  console.log(boards);
   return res.json(boards);
 }
 boardRouter.get("/", getBoard);

@@ -1,13 +1,15 @@
 import axios from "axios";
-import { useNavigate } from "react-router-dom";
+import { Routes, useNavigate } from "react-router-dom";
 import { useState, useEffect } from "react";
+import { Route } from "react-router-dom";
+import Topmenu, { HomeContent } from "./Home";
 // import { BrowserRouter, Routes, Route } from "react-router-dom";
 const headers = { withCredentials: true };
 export default function Board2() {
+  const movePage = useNavigate();
   const [boards, setBoards] = useState(null);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
-  let videos = [];
   async function getBoards() {
     try {
       setError(null);
@@ -23,31 +25,69 @@ export default function Board2() {
   useEffect(() => {
     getBoards();
   }, []);
-  const movePage = useNavigate();
-  function moveCreate() {
-    movePage("/board/create");
-  }
 
   if (loading) return <div> 로딩중</div>;
   if (error) return <div>에러가 발생했습니다</div>;
   if (!boards) return null;
   return (
     <div>
-      {boards.map((board, index) => (
-        <Post board={board} key={index} />
-      ))}
-      <button onClick={moveCreate}>글쓰기</button>
+      <Routes>
+        <Route
+          path={"/"}
+          element={
+            <>
+              {boards.map((board, index) => (
+                <Post board={board} key={index} />
+              ))}
+              <button onClick={() => movePage("create")}>글쓰기</button>
+            </>
+          }
+        ></Route>
+        <Route
+          path={"detail/*"}
+          element={
+            <>
+              <DetailBoard />
+            </>
+          }
+        ></Route>
+        <Route
+          path={"create"}
+          element={
+            <>
+              <CreateBoard />
+            </>
+          }
+        ></Route>
+      </Routes>
     </div>
   );
 
   function Post({ board }) {
+    function moveDetail() {
+      const url = "/board/detail/" + board._id;
+      movePage(url);
+    }
     return (
       <li>
-        <h1>title : {board.title}</h1>
+        <h1 onClick={moveDetail}>제목 : {board.title}</h1>
         <a>내용 : {board.detail}</a>
       </li>
     );
   }
+}
+
+function DetailBoard() {
+  const id = window.location.pathname.substring(14);
+  console.log(id);
+  return (
+    <>
+      {" "}
+      <h1>{id}</h1>
+      <button>글수정</button>
+      <button>글삭제</button>
+    </>
+  );
 }
 export function CreateBoard() {
   const movePage = useNavigate();

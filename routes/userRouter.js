@@ -7,6 +7,9 @@ async function postLogin(req, res) {
   const password = req.body.password;
   const user = await User.findOne({ username });
   console.log(user);
+  if (!user) {
+    return res.json({ message: "존재하지 않는 id입니다." });
+  }
   if (username === user.username && password === user.password) {
     res.json({ message: "로그인성공" });
   } else {

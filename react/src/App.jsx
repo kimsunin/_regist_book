@@ -13,49 +13,24 @@ import "bootstrap/dist/css/bootstrap.min.css";
 function App() {
   return (
     <div className="App">
+      <Topmenu />
       <BrowserRouter>
         <Routes>
-          <Route
-            path={"/"}
-            element={
-              <>
-                <Topmenu />
-                <HomeContent />
-              </>
-            }
-          ></Route>
-          <Route
-            path={"/board"}
-            element={
-              <>
-                <Topmenu />
-                <Board2 />
-              </>
-            }
-          ></Route>
+          <Route path={"/"} element={<HomeContent />}></Route>
+          <Route path={"/board/*"} element={<Board2 />}></Route>
           <Route
             path={"/board/create"}
             element={
               <>
-                <Topmenu />
                 <CreateBoard />
               </>
             }
           ></Route>
-          <Route
-            path={"/join"}
-            element={
-              <>
-                <Topmenu />
-                <Join />
-              </>
-            }
-          ></Route>
+          <Route path={"/join"} element={<Join />}></Route>
           <Route
             path={"/login"}
             element={
               <>
-                <Topmenu />
                 <Login />
                 <LoginBar />
               </>
