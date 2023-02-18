@@ -3,8 +3,9 @@ import React, { useEffect, useState } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import axios from "axios";
 import "./App.css";
-import Board, { BoardDetail, BoardRetouch, CreateBoard } from "./component/Board";
+import Board, { BoardDetail, BoardRetouch } from "./component/Board";
 import Join from "./component/Join";
+import Board2, { CreateBoard } from "./component/Board2";
 import Topmenu, { HomeContent } from "./component/Home";
 import Login, { LoginBar } from "./component/Login";
 import "bootstrap/dist/css/bootstrap.min.css";
@@ -28,29 +29,17 @@ function App() {
             element={
               <>
                 <Topmenu />
-                <Board />
+                <Board2 />
               </>
             }
           ></Route>
-          <Route path="/board/detail" element={
-            <>
-            <Topmenu />
-            <BoardDetail />
-            </>
-            }
-          ></Route>
-          <Route path="/board/create" element={
-            <>
-            <Topmenu />
-            <CreateBoard />
-            </>
-            }
-          ></Route>
-          <Route path="/board/retouch" element={
-            <>
-            <Topmenu />
-            <BoardRetouch />
-            </>
+          <Route
+            path={"/board/create"}
+            element={
+              <>
+                <Topmenu />
+                <CreateBoard />
+              </>
             }
           ></Route>
           <Route

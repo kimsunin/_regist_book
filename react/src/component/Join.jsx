@@ -4,7 +4,6 @@ import React, { useState } from "react";
 
 axios.defaults.withCredentials = true;
 const headers = { withCredentials: true };
-
 export default function Join() {
   const [username, setUsername] = useState();
   const [password, setPassword] = useState();

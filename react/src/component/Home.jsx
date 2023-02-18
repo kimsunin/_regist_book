@@ -24,6 +24,11 @@ export default function Topmenu() {
             Notice
           </a>
         </li>
+        <li>
+          <a className="menuLink" href="/board">
+            Board
+          </a>
+        </li>
       </ul>
     </nav>
   );

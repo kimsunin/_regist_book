@@ -17,9 +17,7 @@ async function postLogin(req, res) {
 async function postJoin(req, res) {
   console.log("dksf");
   const { username, password, password2, email, name } = req.body;
-  console.log("fk");
   const exist = await User.exists({ email });
-  console.log("fk");
 
   if (password !== password2) {
     return res.json({ message: "비밀번호가 일치하지 않습니다" });

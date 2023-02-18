@@ -8,12 +8,17 @@ function postDelete() {
 function postUpdate() {
   console.log("postUpdate");
 }
-function postWrite() {
-  console.log("postWrite");
+async function postWrite(req, res) {
+  const { title, detail } = req.body;
+  try {
+    await Board.create({ title, detail });
+    return res.json({ message: "글쓰기 완료" });
+  } catch (err) {
+    return res.json({ message: { err } });
+  }
 }
 async function getBoard(req, res) {
   const boards = await Board.find({});
-  console.log(boards);
   return res.json(boards);
 }
 boardRouter.get("/", getBoard);
