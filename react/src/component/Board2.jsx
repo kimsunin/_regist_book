@@ -36,10 +36,11 @@ export default function Board2() {
           path={"/"}
           element={
             <>
+              <button onClick={() => movePage("create")}>글쓰기</button>
+
               {boards.map((board, index) => (
                 <Post board={board} key={index} />
               ))}
-              <button onClick={() => movePage("create")}>글쓰기</button>
             </>
           }
         ></Route>
@@ -71,19 +72,52 @@ export default function Board2() {
     return (
       <li>
         <h1 onClick={moveDetail}>제목 : {board.title}</h1>
-        <a>내용 : {board.detail}</a>
       </li>
     );
   }
 }
 
 function DetailBoard() {
-  const id = window.location.pathname.substring(14);
-  console.log(id);
+  const movePage = useNavigate();
+
+  const [board, setBoards] = useState(null);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState(null);
+  async function getDetail() {
+    const id = window.location.pathname.substring(14);
+    console.log(id);
+    const send_param = {
+      headers,
+      id: id,
+    };
+    console.log(send_param);
+    try {
+      setError(null);
+      setBoards(null);
+      setLoading(true);
+      const response = await axios.post(
+        "http://www.localhost:4000/board/detail",
+        send_param
+      );
+      setBoards(response.data);
+    } catch (e) {
+      setError(e);
+    }
+    setLoading(false);
+  }
+  useEffect(() => {
+    getDetail();
+  }, []);
+  if (loading) return <div> 로딩중</div>;
+  if (error) return <div>에러가 발생했습니다</div>;
+  if (!board) return null;
+
   return (
     <>
       {" "}
-      <h1>{id}</h1>
+      <h1>{board.title}</h1>
+      <h2>{board.detail}</h2>
+      <button onClick={() => movePage("/board")}>글목록</button>
       <button>글수정</button>
       <button>글삭제</button>
     </>
