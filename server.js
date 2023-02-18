@@ -4,7 +4,9 @@ import session from "express-session";
 import userRouter from "./routes/userRouter";
 import boardRouter from "./routes/boardRouter";
 import connect from "./schemas";
+import morgan from "morgan";
 const app = express();
+const logger = morgan("dev");
 connect();
 //post전송받은거 설정하기 위해
 const corsOptions = {
@@ -13,6 +15,8 @@ const corsOptions = {
 };
 app.use(cors(corsOptions));
 
+//logger
+app.use(logger);
 //post로 만든 데이터를 알아볼 수 있도록
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));

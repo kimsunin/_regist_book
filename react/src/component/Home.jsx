@@ -20,8 +20,8 @@ export default function Topmenu() {
           </a>
         </li>
         <li>
-          <a className="menuLink" href="/board">
-            Board
+          <a className="menuLink" href="/notice">
+            Notice
           </a>
         </li>
       </ul>
