@@ -3,6 +3,7 @@ import User from "../schemas/user";
 const userRouter = express.Router();
 
 async function postLogin(req, res) {
+  console.log(req.session);
   const username = req.body.username;
   const password = req.body.password;
   const user = await User.findOne({ username });
@@ -11,6 +12,8 @@ async function postLogin(req, res) {
     return res.json({ message: "존재하지 않는 id입니다." });
   }
   if (username === user.username && password === user.password) {
+    req.session.loggedIn = true;
+    req.session.user = user;
     res.json({ message: "로그인성공" });
   } else {
     res.json({ message: "로그인실패" });
@@ -19,6 +22,7 @@ async function postLogin(req, res) {
 
 async function postJoin(req, res) {
   console.log("dksf");
+
   const { username, password, password2, email, name } = req.body;
   const exist = await User.exists({ email });
 

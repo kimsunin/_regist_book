@@ -17,3 +17,5 @@ login 전송버튼을 누르면 login form 데이터를 서버에 보낼 수 있
 해야할것:로그인하면 로그인상태유지 쿠키,세션공부
 로그인되면 join사라지고 login대신 logout띄어주기
 참고사이트 : https://velog.io/@kingth/%EC%84%9C%EB%B2%84-%EC%9D%B8%EC%A6%9D-%EB%B0%A9%EC%8B%9D%EC%84%B8%EC%85%98%EC%BF%A0%ED%82%A4-%ED%86%A0%ED%81%B0
+
+wetube코드보면서 대충 세션을 했는데 정확히 이해 x, 제대로 구현 x 다시만지기
