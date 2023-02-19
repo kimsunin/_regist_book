@@ -2,9 +2,6 @@ import express from "express";
 import Board from "../schemas/board";
 const boardRouter = express.Router();
 
-function postDelete() {
-  console.log("postDelete");
-}
 function postUpdate() {
   console.log("postUpdate");
 }
@@ -33,20 +30,21 @@ async function postDetail(req, res) {
   }
 }
 async function deleteBoard(req, res) {
-  const board = await Board.findById(req.params.id);
   try {
-    await Board.deleteOne({ id: req.params.id });
+    await Board.deleteOne({ _id: req.params.id });
     return res.json({ message: "삭제되었습니다" });
   } catch (err) {
     return res.json({ message: { err } });
   }
-  console.log(board, "이 아디를 삭제할게요");
+}
+async function editBoard(req, res) {
+  console.log("수정합니다");
 }
 boardRouter.get("/", getBoard);
-boardRouter.post("/delete", postDelete);
 boardRouter.post("/update", postUpdate);
 boardRouter.post("/write", postWrite);
 boardRouter.post("/detail", postDetail);
 boardRouter.get("/:id([0-9a-f]{24})/delete", deleteBoard);
+boardRouter.get("/:id([0-9a-f]{24})/edit", editBoard);
 
 export default boardRouter;

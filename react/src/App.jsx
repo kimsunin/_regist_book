@@ -1,11 +1,9 @@
 /* eslint-disable */
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import axios from "axios";
 import "./App.css";
-import Board, { BoardDetail, BoardRetouch } from "./component/Board";
 import Join from "./component/Join";
-import Board2, { CreateBoard } from "./component/Board2";
+import Board2 from "./component/Board";
 import Topmenu, { HomeContent } from "./component/Home";
 import Login, { LoginBar } from "./component/Login";
 import "bootstrap/dist/css/bootstrap.min.css";

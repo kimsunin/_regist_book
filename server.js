@@ -5,8 +5,11 @@ import userRouter from "./routes/userRouter";
 import boardRouter from "./routes/boardRouter";
 import connect from "./schemas";
 import morgan from "morgan";
+
 const app = express();
+//http 요청확인을 위한것
 const logger = morgan("dev");
+//mongodb와 연결
 connect();
 //post전송받은거 설정하기 위해
 const corsOptions = {

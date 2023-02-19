@@ -1,15 +1,12 @@
-import react from "react";
 import axios from "axios";
-import { useState, useEffect } from "react";
-import { Routes, useNavigate } from "react-router-dom";
+import React from "react";
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 const headers = { withCredentials: true };
 
 export default function CreateBoard() {
   const movePage = useNavigate();
-  function moveList() {
-    movePage("/board");
-  }
   const [title, setTitle] = useState();
   const [detail, setDetail] = useState();
 
@@ -58,7 +55,7 @@ export default function CreateBoard() {
         </div>
         <input type="submit" value="생성"></input>
       </form>
-      <button onClick={moveList}>취소</button>
+      <button onClick={() => movePage("/board")}>취소</button>
     </>
   );
 }

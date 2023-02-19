@@ -1,7 +1,7 @@
-import react from "react";
 import axios from "axios";
+import React from "react";
 import { useState, useEffect } from "react";
-import { Routes, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 const headers = { withCredentials: true };
 export default function DetailBoard() {
@@ -16,7 +16,6 @@ export default function DetailBoard() {
       headers,
       id: id,
     };
-    console.log(send_param);
     try {
       setError(null);
       setBoards(null);
@@ -43,11 +42,14 @@ export default function DetailBoard() {
   async function remove() {
     const id = window.location.pathname.substring(14);
     const url = "http://www.localhost:4000/board/" + id + "/delete";
-    console.log(url);
-    console.log(window.location.pathname.substring(14));
-    const response = await axios.get(url);
-    alert(response.data.message);
-    window.location.reload("/board");
+    const response = await axios.get(url).then((returnData) => {
+      if (returnData.data.message) {
+        alert(returnData.data.message);
+        movePage("/board");
+      } else {
+        alert(returnData.data.message);
+      }
+    });
   }
   return (
     <>

@@ -3,36 +3,17 @@
 login 전송버튼을 누르면 login form 데이터를 서버에 보낼 수 있고
 아직 서버에서 로그인 기능을 구현하지는 않았음
 
-또한 아직 디비랑 연결전이라 serve.js에 user모델을 간단하게 만들어서 그거랑 비교한느걸로 기능을 구현할려고함.
-
 나중에 e.preventdefault()를 제거해야되는데 그 방법을 모름
 
 해야될것 -글쓰기 component만들기
 이거만들때 react-bootscrap 사용하기
-관련링크 : https://joonpyo-hong.tistory.com/entry/React-%EB%A6%AC%EC%95%A1%ED%8A%B8React%EC%97%90-%EB%B6%80%ED%8A%B8%EC%8A%A4%ED%8A%B8%EB%9E%A9BootStrap-%EC%A0%81%EC%9A%A9%ED%95%98%EA%B8%B0
 
 공식사이트 : https://react-bootstrap.github.io/getting-started/introduction/
--join.js에서 서버로 post전송하기 -서버에서 user모델,board모델만들기
 
-## react
+2/19
+문제: 현재 글쓰고 삭제하는 기능을 만들었음 1.근데 중간꺼를 삭제하면 client에서 맨 위에꺼가 삭제됨 이유를 모르겠음 => 해결(mongodb에서 \_id:id로 찾았어야되는데 그냥 id:id로 찾았음) 2.그리고 삭제하거나 글생성하고 바로 랜더링되는게 아니라 내가 새로고침을 해줘야됨
+글생성되거나 삭제되면 자동으로 랜더링되도록 고쳐야됨
 
-/board/add
-받고 만약에 추가되면 {message:}추가됨 넣어줄게
-오류뜨면 {
-message: ""
-errMessage:""
-}
-
-## server
-
-1. 회원가입 중복계정확인하기
-2. 글쓰기 api만들기
-3. 로그인 유지시키기 (쿠키,세션)
-
-<nav>
-    <ul>
-        <li>
-        <li>
-        <li>
-    <ul>
-<nav>
+해야할것:로그인하면 로그인상태유지 쿠키,세션공부
+로그인되면 join사라지고 login대신 logout띄어주기
+참고사이트 : https://velog.io/@kingth/%EC%84%9C%EB%B2%84-%EC%9D%B8%EC%A6%9D-%EB%B0%A9%EC%8B%9D%EC%84%B8%EC%85%98%EC%BF%A0%ED%82%A4-%ED%86%A0%ED%81%B0
