@@ -32,9 +32,21 @@ async function postDetail(req, res) {
     return res.json({ message: { err } });
   }
 }
+async function deleteBoard(req, res) {
+  const board = await Board.findById(req.params.id);
+  try {
+    await Board.deleteOne({ id: req.params.id });
+    return res.json({ message: "삭제되었습니다" });
+  } catch (err) {
+    return res.json({ message: { err } });
+  }
+  console.log(board, "이 아디를 삭제할게요");
+}
 boardRouter.get("/", getBoard);
 boardRouter.post("/delete", postDelete);
 boardRouter.post("/update", postUpdate);
 boardRouter.post("/write", postWrite);
 boardRouter.post("/detail", postDetail);
+boardRouter.get("/:id([0-9a-f]{24})/delete", deleteBoard);
+
 export default boardRouter;

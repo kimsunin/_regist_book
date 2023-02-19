@@ -2,7 +2,8 @@ import axios from "axios";
 import { Routes, useNavigate } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { Route } from "react-router-dom";
-import Topmenu, { HomeContent } from "./Home";
+import DetailBoard from "./DetailBoard";
+import CreateBoard from "./CreateBoard";
 // import { BrowserRouter, Routes, Route } from "react-router-dom";
 const headers = { withCredentials: true };
 export default function Board2() {
@@ -75,108 +76,4 @@ export default function Board2() {
       </li>
     );
   }
-}
-
-function DetailBoard() {
-  const movePage = useNavigate();
-
-  const [board, setBoards] = useState(null);
-  const [loading, setLoading] = useState(false);
-  const [error, setError] = useState(null);
-  async function getDetail() {
-    const id = window.location.pathname.substring(14);
-    console.log(id);
-    const send_param = {
-      headers,
-      id: id,
-    };
-    console.log(send_param);
-    try {
-      setError(null);
-      setBoards(null);
-      setLoading(true);
-      const response = await axios.post(
-        "http://www.localhost:4000/board/detail",
-        send_param
-      );
-      setBoards(response.data);
-    } catch (e) {
-      setError(e);
-    }
-    setLoading(false);
-  }
-  useEffect(() => {
-    getDetail();
-  }, []);
-  if (loading) return <div> 로딩중</div>;
-  if (error) return <div>에러가 발생했습니다</div>;
-  if (!board) return null;
-
-  return (
-    <>
-      {" "}
-      <h1>{board.title}</h1>
-      <h2>{board.detail}</h2>
-      <button onClick={() => movePage("/board")}>글목록</button>
-      <button>글수정</button>
-      <button>글삭제</button>
-    </>
-  );
-}
-export function CreateBoard() {
-  const movePage = useNavigate();
-  function moveList() {
-    movePage("/board");
-  }
-  const [title, setTitle] = useState();
-  const [detail, setDetail] = useState();
-
-  async function create(e) {
-    e.preventDefault();
-    const send_param = {
-      headers,
-      title: title,
-      detail: detail,
-    };
-    const response = await axios
-      .post("http://www.localhost:4000/board/write", send_param)
-      .then((returnData) => {
-        if (returnData.data.message) {
-          alert(returnData.data.message);
-          movePage("/board");
-        } else {
-          alert(returnData.data.message);
-        }
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-  }
-
-  return (
-    <>
-      <form method="post" onSubmit={create}>
-        <div className="title">
-          <input
-            type="text"
-            name="title"
-            placeholder="제목"
-            value={title || ""}
-            onChange={(e) => setTitle(e.target.value)}
-          ></input>
-        </div>
-        <div className="detail">
-          <input
-            type="text"
-            name="detail"
-            placeholder="내용"
-            value={detail || ""}
-            onChange={(e) => setDetail(e.target.value)}
-          ></input>
-        </div>
-        <input type="submit" value="생성"></input>
-      </form>
-      <button onClick={moveList}>취소</button>
-    </>
-  );
 }

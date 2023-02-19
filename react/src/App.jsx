@@ -13,31 +13,28 @@ import "bootstrap/dist/css/bootstrap.min.css";
 function App() {
   return (
     <div className="App">
+      {/* header부분 */}
       <Topmenu />
-      <BrowserRouter>
-        <Routes>
-          <Route path={"/"} element={<HomeContent />}></Route>
-          <Route path={"/board/*"} element={<Board2 />}></Route>
-          <Route
-            path={"/board/create"}
-            element={
-              <>
-                <CreateBoard />
-              </>
-            }
-          ></Route>
-          <Route path={"/join"} element={<Join />}></Route>
-          <Route
-            path={"/login"}
-            element={
-              <>
-                <Login />
-                <LoginBar />
-              </>
-            }
-          ></Route>
-        </Routes>
-      </BrowserRouter>
+      {/* body부분 */}
+      <>
+        <BrowserRouter>
+          <Routes>
+            <Route path={"/"} element={<HomeContent />}></Route>
+            <Route path={"/board/*"} element={<Board2 />}></Route>
+
+            <Route path={"/join"} element={<Join />}></Route>
+            <Route
+              path={"/login"}
+              element={
+                <>
+                  <Login />
+                  <LoginBar />
+                </>
+              }
+            ></Route>
+          </Routes>
+        </BrowserRouter>
+      </>
     </div>
   );
 }
