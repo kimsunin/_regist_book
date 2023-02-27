@@ -27,6 +27,11 @@
   color: white;
 }
 
+.search-form {
+  padding-left: 50px;
+
+}
+
 
 .App-header {
   background-color: #282c34;
