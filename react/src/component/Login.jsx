@@ -31,52 +31,64 @@ export default function Login() {
   }
   return (
     <div id="loginWrapper">
-      <h2>Login</h2>
-
       <form method="post" onSubmit={login} id="loginForm">
-        <input
-          type="text"
-          name="username"
-          placeholder="Id"
-          value={username || ""}
-          onChange={(e) => setUsername(e.target.value)}
-        ></input>
-        <input
-          type="password"
-          name="password"
-          placeholder="Password"
-          value={password || ""}
-          onChange={(e) => setPassword(e.target.value)}
-        ></input>
-        <label htmlFor="remember-check">
-          <input type="checkbox" id="remember-check"></input>
-        </label>
-        <input type="submit" value="Login"></input>
+          <div className="login-id" class="row mb-3">
+            <label for="inputEmail3" class="col-sm-2 col-form-label">Id</label>
+            <div class="col-sm-10">
+              <input
+                className="login-input"
+                class="form-control"
+                type="text"
+                name="username"
+                placeholder="Id"
+                value={username || ""}
+                onChange={(e) => setUsername(e.target.value)}
+              ></input>
+            </div>
+          </div>
+          <div class="row mb-3">
+            <label for="inputPassword3" class="col-sm-2 col-form-label">Password</label>
+            <div class="col-sm-10">
+              <input
+                className="login-input"
+                class="form-control"
+                type="password"
+                name="password"
+                placeholder="Password"
+                value={password || ""}
+                onChange={(e) => setPassword(e.target.value)}
+              ></input>
+            </div>
+            <div class="row mb-3">
+              <div class="col-sm-10 offset-sm-2">
+                <div class="form-check">
+                  <input class="form-check-input" type="checkbox" id="gridCheck1"></input>
+                  <label class="form-check-label" for="gridCheck1">
+                  remember
+                  </label>
+                </div>
+              </div>
+            </div>
+            <input class="btn btn-primary" type="submit" value="Login"></input>
+          </div>
       </form>
     </div>
   );
 }
 
 export function LoginBar() {
-  const movePage = useNavigate();
-  function moveLoginFind() {
-    movePage("/login/find");
-  }
-  function moveJoin() {
-    movePage("/join");
-  }
   return (
     <nav id="loginBar">
       <ul>
         <span>
-          <button onClick={moveLoginFind} className="menuLink">
+          <a href="/login/find" >
             Find ID/Pw
-          </button>
+          </a>
         </span>
         <span>
-          <button onClick={moveJoin} className="menuLink">
+          <a href="/join" >
             Join
-          </button>
+          </a>
         </span>
       </ul>
     </nav>
