@@ -31,10 +31,12 @@ async function postDetail(req, res) {
 }
 
 async function searchDetail(req, res) {
-  const { detail } = req.body;
+  let { detail } = req.body;
   console.log(detail);
+  const regex = (pattern) => new RegExp(`.*${pattern}.*`);
+  const detailRegex = regex(detail);
   try {
-    const boards = await Board.findOne({ detail: detail });
+    let boards = await Board.findOne({ detail: { $regex: detailRegex } });
     console.log(boards.detail);
     return res.json({ message: "내용이 존재" });
   } catch (err) {
