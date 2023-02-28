@@ -29,6 +29,19 @@ async function postDetail(req, res) {
     return res.json({ message: { err } });
   }
 }
+
+async function searchDetail(req, res) {
+  const { detail } = req.body;
+  console.log(detail);
+  try {
+    const boards = await Board.findOne({ detail: detail });
+    console.log(boards.detail);
+    return res.json({ message: "내용이 존재" });
+  } catch (err) {
+    return res.json({ message: "내용이 존재하지 않음" });
+  }
+}
+
 async function deleteBoard(req, res) {
   try {
     await Board.deleteOne({ _id: req.params.id });
@@ -44,6 +57,7 @@ boardRouter.get("/", getBoard);
 boardRouter.post("/update", postUpdate);
 boardRouter.post("/write", postWrite);
 boardRouter.post("/detail", postDetail);
+boardRouter.post("/search", searchDetail);
 boardRouter.get("/:id([0-9a-f]{24})/delete", deleteBoard);
 boardRouter.get("/:id([0-9a-f]{24})/edit", editBoard);
 
