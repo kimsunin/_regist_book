@@ -7,7 +7,7 @@ import Board2 from "./component/Board";
 import Topmenu, { HomeContent } from "./component/Home";
 import Login, { LoginBar } from "./component/Login";
 import "bootstrap/dist/css/bootstrap.min.css";
-
+import axios from "axios";
 function App() {
   return (
     <div className="App">

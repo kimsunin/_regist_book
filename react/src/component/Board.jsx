@@ -7,7 +7,6 @@ import ListBoard from "./ListBoard";
 // import { BrowserRouter, Routes, Route } from "react-router-dom";
 const headers = { withCredentials: true };
 export default function Board2() {
-  const movePage = useNavigate();
   return (
     <div>
       <Routes>
@@ -38,19 +37,4 @@ export default function Board2() {
       </Routes>
     </div>
   );
-
-  function Post({ board }) {
-    function moveDetail() {
-      const url = "/board/detail/" + board._id;
-      movePage(url);
-    }
-    return (
-      <>
-        <li style={{ listStyle: "none" }}>
-          <h1 onClick={moveDetail}>제목 : {board.title}</h1>
-        </li>
-        <hr />
-      </>
-    );
-  }
 }

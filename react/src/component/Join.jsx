@@ -11,7 +11,7 @@ export default function Join() {
   const [email, setEmail] = useState();
   const [name, setName] = useState();
   async function join(e) {
-    e.preventDefault();
+    // e.preventDefault();
     const send_param = {
       headers,
       username: username,

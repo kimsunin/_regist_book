@@ -3,7 +3,6 @@ import User from "../schemas/user";
 const userRouter = express.Router();
 
 async function postLogin(req, res) {
-  console.log(req.session);
   const username = req.body.username;
   const password = req.body.password;
   const user = await User.findOne({ username });
@@ -12,11 +11,14 @@ async function postLogin(req, res) {
     return res.json({ message: "존재하지 않는 id입니다." });
   }
   if (username === user.username && password === user.password) {
+    //세션에 접근하는 법은 req.session으로 접근
+    // loggedIn, user를 세션에 추가한것
+    // 로그인됬을때 세션에 추가해놓고 나중에 세션에
     req.session.loggedIn = true;
-    req.session.user = user;
-    res.json({ message: "로그인성공" });
+    req.session.user = user.username;
+    return res.json({ message: "로그인성공" });
   } else {
-    res.json({ message: "로그인실패" });
+    return res.json({ message: "로그인실패" });
   }
 }
 
@@ -40,6 +42,8 @@ async function postJoin(req, res) {
   }
 }
 function postLogout() {
+  // 로그아웃하면 세션을 파괴하면된다.
+  // 세션 파괴방법은 req.session.detory()
   console.log("postLogout");
 }
 function postDelete() {

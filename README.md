@@ -27,3 +27,7 @@ boards가 변경되어야하는데
 여기서 create랑 detail을 다른 파일(함수)로 빼서 호출해서 썻듯이
 path("/")부분도 MainBoard.js식으로 뺀다음에
 위에있던 useEffect를 MainBoard.js에 넣어바
+
+로그인유지 : 세션은 req.session으로 접근가능
+서버쪽은 세션
+클라리언트는 쿠키
