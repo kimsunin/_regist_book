@@ -47,3 +47,7 @@ board list, borad add, board detail 2. react-bootscrap 으로 바꾸기 3. 조�
 
 1.search 컴포넌트 구현
 검색어 입력후 search 버튼 클릭하면 검색어와 일치하는 board들을 가져와서 list 로 보여줌
+
+3/1
+to.선인
+Home.jsx에 css를 넣으면 코드가 너무 알아보기 힘들ㄹ어서 css파일 따로 만들어서 관리해줘

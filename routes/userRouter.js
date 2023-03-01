@@ -11,11 +11,6 @@ async function postLogin(req, res) {
     return res.json({ message: "존재하지 않는 id입니다." });
   }
   if (username === user.username && password === user.password) {
-    //세션에 접근하는 법은 req.session으로 접근
-    // loggedIn, user를 세션에 추가한것
-    // 로그인됬을때 세션에 추가해놓고 나중에 세션에
-    req.session.loggedIn = true;
-    req.session.user = user.username;
     return res.json({ message: "로그인성공" });
   } else {
     return res.json({ message: "로그인실패" });
