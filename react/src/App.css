@@ -9,10 +9,9 @@
   padding-right: 20px;
 }
 
-/* topmenu css */
-
+/* topmenu css  */
 #topMenu {
-  background:dodgerblue;
+  background: dodgerblue;
   width: 100%;
   display: flex;
   color: white;
@@ -32,11 +31,12 @@
 .search-form {
   padding-left: 50px;
 }
+*/
 
 /* login css */
 
-#loginWrapper {
-  text-align: center; 
+ #loginWrapper {
+  text-align: center;
   text-align: left;
   width: 500px;
   margin: 0 auto;
@@ -46,10 +46,6 @@
 .login-input {
   width: 300px;
 }
-
-
-
-
 .App-header {
   background-color: #282c34;
   min-height: 100vh;

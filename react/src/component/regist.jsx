@@ -1,28 +1,27 @@
-import axios from "axios";
-import React from "react";
-import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { useState } from "react";
+import axios from "axios";
 
-const headers = { withCredentials: true };
+const headers = { withCredntials: true };
 
-export default function CreateBoard() {
+export default function Regist() {
   const movePage = useNavigate();
   const [title, setTitle] = useState();
-  const [detail, setDetail] = useState();
+  const [author, setAuthor] = useState();
 
-  async function create(e) {
+  async function regist(e) {
     e.preventDefault();
     const send_param = {
       headers,
       title: title,
-      detail: detail,
+      author: author,
     };
     const response = await axios
-      .post("http://www.localhost:4000/board/write", send_param)
+      .post("http://www.localhost:4000/regist", send_param)
       .then((returnData) => {
         if (returnData.data.message) {
           alert(returnData.data.message);
-          movePage("/board");
+          movePage("/");
         } else {
           alert(returnData.data.message);
         }
@@ -33,29 +32,27 @@ export default function CreateBoard() {
   }
 
   return (
-    <>
-      <form method="post" onSubmit={create}>
-        <div className="title">
+    <div className="regist">
+      <form type="post" onSubmit={regist} className="regist-form">
+        <div className="regist-title">
           <input
             type="text"
-            name="title"
             placeholder="제목"
             value={title || ""}
             onChange={(e) => setTitle(e.target.value)}
           ></input>
         </div>
-        <div className="detail">
+        <div className="regist-author">
           <input
             type="text"
-            name="detail"
-            placeholder="내용"
-            value={detail || ""}
-            onChange={(e) => setDetail(e.target.value)}
+            placeholder="저자"
+            value={author || ""}
+            onChange={(e) => setAuthor(e.target.value)}
           ></input>
         </div>
-        <input type="submit" value="생성"></input>
+        <input type="submit" value="등록"></input>
       </form>
-      <button onClick={() => movePage("/board")}>취소</button>
-    </>
+      <button onClick={() => movePage("/")}>취소</button>
+    </div>
   );
 }

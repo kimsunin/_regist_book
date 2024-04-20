@@ -17,7 +17,7 @@ module.exports = () => {
           console.log("몽고디비 연결 성공");
         }
       }
-    );  
+    );
   };
   connect();
   mongoose.connection.on("error", (error) => {
@@ -28,5 +28,5 @@ module.exports = () => {
     connect();
   });
   //   require("./board");
-  require("./user");
+  // require("./regist");
 };

@@ -1,7 +1,6 @@
 import express from "express";
 import cors from "cors"; //다른 포트번호에서 이서버로 post요청을 수락하기
-import userRouter from "./routes/userRouter";
-import boardRouter from "./routes/boardRouter";
+import registRouter from "./routes/registRouter";
 import connect from "./schemas";
 import morgan from "morgan";
 
@@ -23,6 +22,5 @@ app.use(logger);
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-app.use("/users", userRouter);
-app.use("/board", boardRouter);
+app.use("/regist", registRouter);
 app.listen(4000, () => console.log("✅server is listening!"));
